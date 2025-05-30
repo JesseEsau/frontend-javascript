@@ -22,3 +22,35 @@ function printTeacher(firstName: string, lastName: string): string {
     return `${initial}. ${lastName}`;
 }
 
+// Interface for the StudentClass instance
+interface IStudentClass {
+    firstName: string;
+    lastName: string;
+    workOnHomework(): string;
+    displayName(): string;
+}
+
+// Interface for the StudentClass constructor
+interface IStudentConstructor {
+    new(firstName: string, lastName: string): IStudentClass
+}
+
+class StudentClass implements IStudentClass {
+    firstName: string;
+    lastName: string;
+
+    // constructor initialize properties
+    constructor(firstName: string, lastName: string) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
+
+    workOnHomework(): string {
+        return "Currently working";
+    }
+
+    displayName(): string {
+        return this.firstName
+    }
+
+}
